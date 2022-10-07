@@ -25,17 +25,3 @@ xrdml2df <- function(xfile,
   return(counts2theta)
 }
 
-dir0 <- "//uniwa.uwa.edu.au/userhome/staff8/00028958/My Documents/aaTeaching/ENVT4461/Data ENVT4461/XRD-S2-2022/CP_xrdml_S2_2022/"
-
-S_12_Mg <- xrdml2df(xfile = "ENVT4461 S12-Mg.xrdml", xdir = dir0)
-plot(S_12_Mg, type="l", col = "red3", ylim=c(-1e3,4e4))
-head(S_12_Mg); tail(S_12_Mg)
-
-S_12_Gly <- xrdml2df(xfile = "ENVT4461 S-12 Mg+Gly.xrdml",xdir = dir0)
-with(S_12_Gly, lines(Counts+2000 ~ Angle, col = "green3"))
-
-S_12_400 <- xrdml2df(xfile = "ENVT4461 S-12 Heated-400.xrdml",xdir = dir0)
-with(S_12_400, lines(Counts+4000 ~ Angle, col = "blue2"))
-
-S_12_550 <- xrdml2df(xfile = "ENVT4461 S-12 Heated-550.xrdml",xdir = dir0)
-with(S_12_550, lines(Counts+6000 ~ Angle, col = "grey40"))
