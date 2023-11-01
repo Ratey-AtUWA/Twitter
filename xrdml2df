@@ -1,9 +1,13 @@
 xrdml2df <- function(xfile,
                      xdir = "wd"
                      ) {
+  require(stringr)
   if(xdir == "wd") {
     xdir <- getwd()
-    }
+  }
+  if(str_sub(xdir,-1,-1)!="/"){
+    xdir <- paste0(xdir,"/")
+  }
   xrdmlRaw <- readLines(paste0(xdir, xfile))
   twothet0 <- grep("2Theta", xrdmlRaw)
   beg0 <- xrdmlRaw[twothet0 + 1]
